@@ -1,0 +1,138 @@
+Assignment 1:
+
+package com.sapient.day6;
+
+import java.util.Scanner;
+
+public class Assignment_1 {
+    public static double averageCalculator(int grades[],int max) {
+
+        int sum = 0;
+        double average = 0.0;
+
+        for (int i = 0; i < max; i++) {
+            sum += grades[i];
+            average = sum/max;
+        }
+        return average;
+    }
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int i;
+        int ind=0;
+        int[] grades = new int[20];
+        System.out.println(" Enter Grade :");
+
+        try {for (i = 0; i < 20; i++) {
+            System.out.println(" grade " + i + " :");
+            grades[i] = sc.nextInt();
+            ind=i;
+            if (grades[i] == -1)
+                break;
+        }}
+        catch (Exception e)
+        {
+            System.out.println("you triggers the input");
+        }
+            finally
+        {
+            double result = averageCalculator(grades, ind);
+            System.out.printf("result is : " + result);
+        }
+    }
+}
+====================================================================================
+Assignment 2: 
+package com.sapient.day6;
+
+public class Assignment_2 {
+    public static void main(String[] args) {
+
+
+        int n = 4;
+        String[] names = new String["Lokesh","Rahul", "Shivam", "Sundar"} ;
+        String temp;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+
+                if (names[i].compareTo(names[j]) > 0) {
+                    // swapping
+                    temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                }
+            }
+        }
+
+        System.out.println("The names in alphabetical order are: ");
+        for (int i = 0; i < n; i++) {
+            System.out.println(names[i]);
+        }
+    }
+
+}
+
+====================================================================================
+
+Assignment 3:  
+interface Arithmetic {
+    int operation(int a, int b);
+}
+
+public class Assignment_3 {
+    public static void main(String[] args) {
+
+
+        Arithmetic addition = (int a, int b) -> (a + b);
+
+        System.out.println("Addition = " + addition.operation(5, 6));
+
+        Arithmetic subtraction = (int a, int b) -> (a - b);
+
+        System.out.println("Subtraction = " + subtraction.operation(5, 3));
+
+        Arithmetic multiplication = (int a, int b) -> (a * b);
+
+        System.out.println("Multiplication = " + multiplication.operation(4, 6));
+
+        Arithmetic division = (int a, int b) -> (a / b);
+
+        System.out.println("Division = " + division.operation(12, 6));
+
+    }
+}
+
+=============================================================================================
+Assignment 4:
+package com.sapient.day6;
+
+import java.util.Scanner;
+
+public class Assignment_4 {
+      public static void functn()
+        {
+            try
+            {
+                throw new NullPointerException("demo");
+            }
+            catch(NullPointerException e)
+            {
+                System.out.println("Caught inside functn().");
+                throw e; // rethrowing the exception
+            }
+        }
+
+        public static void main(String args[])
+        {
+            try
+            {
+                functn();
+            }
+            catch(NullPointerException e)
+            {
+                System.out.println("Caught in main.");
+            }
+        }
+    }
