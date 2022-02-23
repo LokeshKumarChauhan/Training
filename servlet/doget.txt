@@ -1,0 +1,18 @@
+public void doGet(HttpServletRequest request,
+                    HttpServletResponse response)
+      throws ServletException, IOException {
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    String title = "Session Tracking Example";
+    HttpSession session = request.getSession(true);
+    String heading;
+    Integer accessCount =
+      (Integer)session.getAttribute("accessCount");
+    if (accessCount == null) {
+      accessCount = new Integer(0);
+      heading = "Welcome, Newcomer";
+    } else {
+      heading = "Welcome Back";
+      accessCount = new Integer(accessCount.intValue() + 1);
+    }
+    session.setAttribute("accessCount", accessCount);
